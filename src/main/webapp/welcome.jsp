@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
      <%@page import= "java.sql.*" %>
+<%@ page import = "za.co.unisa.dao.StudentDao" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,22 +38,11 @@ width="150" height="100"/>
 <tr><th>firstName</th><th>lastName</th><th>telephoneNumber</th>
 	<th>email</th><th>dateOfBirth</th><th>maritalStatus</th><th>course</th>
 
-<%! public Connection getConnection() {
-	Connection con = null;
-	try {
-		Class.forName("com.mysql.cj.jdbc.Driver");
-		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/student_db","root","YOURNEWPASSWORD");
-	}catch(Exception e) {
-		System.out.println(e);
-	}
-	return con;
-}
-%>
 
 <% String sqlQuery = "select * from student";	
 
 Statement stm = null;
- Connection con = getConnection();
+Connection con = StudentDao.getConnection();
  try {
 	 stm = con.createStatement();
  }catch(SQLException e) {

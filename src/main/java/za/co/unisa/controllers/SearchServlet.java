@@ -51,7 +51,6 @@ public class SearchServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 				
 		//String val = (String)request.getParameter("search");
-		//String val = request.getParameter("search");
 //request.setAttribute(val, val);
 
 	request.getRequestDispatcher("search.jsp").forward(request, response);
